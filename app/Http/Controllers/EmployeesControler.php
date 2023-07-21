@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Employee;
 
 class EmployeesControler extends Controller
 {
@@ -11,6 +12,21 @@ class EmployeesControler extends Controller
      */
     public function index()
     {
+        // $employees = Employee::all();
+        // $employees = Employee::orderBy('id','desc')->take(10)->get();
+        // $employees = Employee::where('min_to_read',2)->get();
+        // $employees = Employee::where('min_to_read','!=',2)->get();
+          // dd($employees);
+        // Employee::chunk(25, function ($employees){
+        //     foreach ($employees as $employee){
+        //         echo $employee->name . '<br>' ;
+        //     }
+        // });
+        // $employees = Employee::get()->count();
+        // $employees = Employee::sum('min_to_read');
+        $employees = Employee::avg('min_to_read');
+             dd($employees);
+      
         return view('blog.index');
     }
 
