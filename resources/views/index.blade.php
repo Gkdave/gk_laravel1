@@ -9,7 +9,7 @@
   <h1 class="text-3xl font-bold bg-blue-600 p-4 text-red-300 underline">
     Hello Taiwind !!!
   </h1>
-  <h2 class="text-3xl font-bold bg-blue-600 p-4 text-red-300 underline">
+  <h2 class="text-3xl font-bold mt-3 bg-blue-600 p-4 text-red-300 underline">
   hello Git !!
   </h2>
 
