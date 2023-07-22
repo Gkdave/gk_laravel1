@@ -14,13 +14,23 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // $this->call(EmployeesTableSeeder::class);
-
-            Employee::factory(100)->create(
-                [
-                    'post' => 'Engineer'
-                ]
-            );
-
         
+        Employee::factory(20)->create();
+        
+        // Employee::factory(10)->create(
+        //     [
+        //         'post' => 'Eng'
+        //     ]
+        // );
+
+        //     $arr = array('Engineer' =>'a','teacher'=>'b','technic'=>'c');
+        //     $key = array_rand($arr);
+        //  Employee::factory(10)->create(
+            
+        //     [
+        //         'post' => $key
+        //     ]
+
+        // );
     }
-}
+};

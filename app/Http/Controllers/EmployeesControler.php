@@ -24,8 +24,9 @@ class EmployeesControler extends Controller
         // });
         // $employees = Employee::get()->count();
         // $employees = Employee::sum('min_to_read');
-        $employees = Employee::avg('min_to_read');
-             dd($employees);
+        // $employees = Employee::avg('min_to_read');
+            //  dd($employees);
+        
       
         return view('blog.index');
     }
@@ -51,7 +52,9 @@ class EmployeesControler extends Controller
      */
     public function show(string $id)
     {
-        //
+        $employee = Employee::find($id);
+        dd($employee);
+      
     }
 
     /**
