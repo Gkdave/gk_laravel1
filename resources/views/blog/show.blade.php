@@ -12,10 +12,11 @@
     <title>
         Laravel App
     </title>
-    <link
+    {{-- <link
         rel="stylesheet"
         href="{{ asset('css/app.css') }}"
-    />
+    /> --}}
+    @vite('resources/css/app.css')
 </head>
 <body>
     <div class="w-4/5 mx-auto">
@@ -25,9 +26,10 @@
                 < Back to previous page>
             </a>
         </div>
+        
 
         <h4 class="text-left sm:text-center text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 py-10 sm:py-20">
-            {{ $employee->title }}
+            {{ $employee->name }}
         </h4>
 
         <div class="block lg:flex flex-row">
@@ -46,13 +48,35 @@
 
         <div class="pt-10 pb-10 text-gray-900 text-xl">
             <p class="font-bold text-2xl text-black pt-10">
+                {{ $employee->emp_id }}
+            </p>
+            <p class="font-bold text-2xl text-black pt-10">
                 {{ $employee->excerpt }}
             </p>
 
+            
             <p class="text-base text-black pt-10">
-                {{ $employee->body }}
+                {{ $employee->dob }}
             </p>
-        </div>
+            <p class="text-base text-black pt-10">
+                {{ $employee->post }}
+            </p>
+            <p class="text-base text-black pt-10">
+                {{ $employee->sallary }}
+            </p>
+            <p class="text-base text-black pt-10">
+                {{ $employee->address }}
+            </p>
+            <p class="text-base text-black pt-10">
+                {{ $employee->min_to_read }}
+            </p>
+            <p class="text-base text-black pt-10">
+                {{ $employee->image_path }}
+            </p>
+            <p class="text-base text-black pt-10">
+                {{ $employee->is_published }}
+            </p>
+         </div>
     </div>
     </body>
 </html>

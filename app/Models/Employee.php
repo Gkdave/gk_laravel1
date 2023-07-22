@@ -12,6 +12,8 @@ class Employee extends Model
     // protected $primarykey = "name";
     // protected $timestamps = false;
     // protected $dateTime = 'U';
-
+    protected $fillable = [
+        'emp_id','name','excerpt','dob','post','sallary','address','min_to_read','image_path','is_published'
+    ];
     
 }

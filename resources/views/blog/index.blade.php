@@ -13,10 +13,11 @@
     <title>
         Laravel App
     </title>
-    <link
+    {{-- <link
         rel="stylesheet"
         href="{{ asset('css/app.css') }}"
-    />
+    /> --}}
+    @vite('resources/css/app.css')
 </head>
 <body class="w-full h-full bg-gray-100">
     <div class="w-4/5 mx-auto">
@@ -29,11 +30,12 @@
 
         <div class="py-10 sm:py-20">
             <a class="primary-btn inline text-base sm:text-xl bg-green-500 py-4 px-4 shadow-xl rounded-full transition-all hover:bg-green-400"
-               href="">
+               href="{{ route('blog.create') }}">
                 New Article
             </a>
         </div>
     </div>
+    {{-- {{ dd($employees) }} --}}
 
     @foreach($employees as $employee)
         <div class="w-4/5 mx-auto pb-10">
@@ -41,12 +43,36 @@
                 <div class="w-11/12 mx-auto pb-10">
                     <h2 class="text-gray-900 text-2xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700 transition-all">
                         <a href="{{ route('blog.show', $employee->id) }}">
-                            {{ $employee->title }}
+                            {{ $employee->emp_id }}
                         </a>
                     </h2>
 
                     <p class="text-gray-900 text-lg py-8 w-full break-words">
+                        {{ $employee->name }}
+                    </p>
+                    <p class="text-gray-900 text-lg py-8 w-full break-words">
                         {{ $employee->excerpt }}
+                    </p>
+                    <p class="text-gray-900 text-lg py-8 w-full break-words">
+                        {{ $employee->dob }}
+                    </p>
+                    <p class="text-gray-900 text-lg py-8 w-full break-words">
+                        {{ $employee->post }}
+                    </p>
+                    <p class="text-gray-900 text-lg py-8 w-full break-words">
+                        {{ $employee->sallary }}
+                    </p>
+                    <p class="text-gray-900 text-lg py-8 w-full break-words">
+                        {{ $employee->address }}
+                    </p>
+                    <p class="text-gray-900 text-lg py-8 w-full break-words">
+                        {{ $employee->min_to_read }}
+                    </p>
+                    <p class="text-gray-900 text-lg py-8 w-full break-words">
+                        {{ $employee->image_path }}
+                    </p>
+                    <p class="text-gray-900 text-lg py-8 w-full break-words">
+                        {{ $employee->is_published }}
                     </p>
 
                     <span class="text-gray-500 text-sm sm:text-base">

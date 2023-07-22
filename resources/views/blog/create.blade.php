@@ -4,7 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+    @vite('resources/css/app.css')
 </head>
 <body>
 <div class="w-4/5 mx-auto">
@@ -17,9 +18,10 @@
 
 <div class="m-auto pt-20">
     <form
-        action=""
-        method=""
+        action="{{ route('blog.store') }}"
+        method="POST"
         enctype="multipart/form-data">
+        @csrf 
 
         <label for="is_published" class="text-gray-500 text-2xl">
             Is Published
@@ -28,11 +30,16 @@
             type="checkbox"
             class="bg-transparent block border-b-2 inline text-2xl outline-none"
             name="is_published">
+        <input
+            type="number"
+            name="emp_id"
+            placeholder="Employee_Id"
+            class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <input
             type="text"
-            name="title"
-            placeholder="Title..."
+            name="name"
+            placeholder="Name"
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <input
@@ -42,15 +49,41 @@
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <input
-            type="number"
-            name="min_to_read"
-            placeholder="Minutes to read..."
+            type="date"
+            name="dob"
+            placeholder="date of birth"
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
-        <textarea
-            name="body"
-            placeholder="Body..."
-            class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
+        <input
+            type="text"
+            name="post"
+            placeholder="Post held"
+            class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none">
+        <input
+            type = "number"
+            name="sallary"
+            placeholder="Sallary"
+            class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none">
+        <input
+            type="text"
+            name="address"
+            placeholder="address"
+            class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
+        <input
+            type="number"
+            name="min_to_read"
+            placeholder="MIN_TO_READ"
+            class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
+        <input
+            type="path"
+            name="image"
+            placeholder="image"
+            class="py-20 bg-transparent block border-b-2 w-full h-15 text-xl outline-none"> 
+        
+
+
+
+
             
         <div class="bg-grey-lighter py-10">
             <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
