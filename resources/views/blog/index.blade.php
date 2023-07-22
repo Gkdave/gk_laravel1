@@ -1,19 +1,5 @@
-<!doctype html>
+
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite('resources/css/app.css')
-</head>
-<body>
-  <h1 class="text-3xl font-bold bg-blue-600 p-4 text-red-300 underline">
-    Blog  Page 
-  </h1>
-  {{ $employees }}
-  
-</body>
-</html>
-{{-- <html>
 <head>
     <meta charset="UTF-8">
     <meta
@@ -49,18 +35,18 @@
         </div>
     </div>
 
-    @foreach($posts as $post)
+    @foreach($employees as $employee)
         <div class="w-4/5 mx-auto pb-10">
             <div class="bg-white pt-10 rounded-lg drop-shadow-2xl sm:basis-3/4 basis-full sm:mr-8 pb-10 sm:pb-0">
                 <div class="w-11/12 mx-auto pb-10">
                     <h2 class="text-gray-900 text-2xl font-bold pt-6 pb-0 sm:pt-0 hover:text-gray-700 transition-all">
-                        <a href="{{ route('blog.show', $post->id) }}">
-                            {{ $post->title }}
+                        <a href="{{ route('blog.show', $employee->id) }}">
+                            {{ $employee->title }}
                         </a>
                     </h2>
 
                     <p class="text-gray-900 text-lg py-8 w-full break-words">
-                        {{ $post->excerpt }}
+                        {{ $employee->excerpt }}
                     </p>
 
                     <span class="text-gray-500 text-sm sm:text-base">
@@ -76,4 +62,4 @@
         </div>
     @endforeach
 </body>
-</html> --}}
+</html> 

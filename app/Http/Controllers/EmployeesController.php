@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
-
-class EmployeesControler extends Controller
+class EmployeesController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      */
     public function index()
@@ -26,14 +25,11 @@ class EmployeesControler extends Controller
         // $employees = Employee::sum('min_to_read');
         // $employees = Employee::avg('min_to_read');
             //  dd($employees);
-        
+    
       
         return view('blog.index');
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    }
     public function create()
     {
         //
@@ -52,9 +48,11 @@ class EmployeesControler extends Controller
      */
     public function show(string $id)
     {
-        $employee = Employee::find($id);
-        dd($employee);
-      
+     
+        // dd($employee);
+        // return view('blog.show',[
+        // 'employee'=> Employee::find($id)
+        //  ] );
     }
 
     /**
