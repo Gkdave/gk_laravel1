@@ -40,6 +40,19 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'emp_id' =>'',
+            'name' => 'required|unique:employees|max:255',
+            'excerpt' =>'required',
+            'dob' =>'',
+            'post' => 'required',
+            'sallary'=>'',
+            'address' =>'',
+            'min_to_read'=>'min:0|max:60',
+            'image' =>['required','mimes:jpg,png,jpeg','max:5048'],
+           
+            
+        ]);
         // dd($request->all()); 
         // exit;
         // $employee = new Employee();
@@ -89,7 +102,9 @@ class EmployeesController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('blog.edit',
+        ['employee' =>Employee::where('id',$id)->first()
+    ]);
     }
 
     /**
@@ -97,7 +112,7 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+       dd("test");
     }
 
     /**

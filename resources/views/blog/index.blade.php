@@ -83,6 +83,9 @@
                         </a>
                     op 13-07-2022
                 </span>
+                <a href="{{ route('blog.edit',$employee->id) }}" class="block italic text-green-500 border-b-1 border-green-200">
+                    Edit
+                </a>
                 </div>
             </div>
         </div>

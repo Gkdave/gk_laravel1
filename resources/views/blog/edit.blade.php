@@ -11,7 +11,7 @@
 <div class="w-4/5 mx-auto">
     <div class="text-center pt-20">
         <h1 class="text-3xl text-gray-700">
-            Add new post
+          Edit {{ $employee->name }}
         </h1>
         <hr class="border border-1 border-gray-300 mt-10">
     </div>
@@ -33,22 +33,24 @@
         @endif
     </div>
     <form
-        action="{{ route('blog.store') }}"
+        action="{{ route('blog.update',$employee->id) }}"
         method="POST"
         enctype="multipart/form-data">
         @csrf 
+        @method('PATCH')
 
         <label for="is_published" class="text-gray-500 text-2xl">
             Is Published
         </label>
         <input
-            type="checkbox"
+        type="checkbox"
+        {{ $employee->is_published === true ? 'checked' : ''}}
             class="bg-transparent block border-b-2 inline text-2xl outline-none"
             name="is_published">
         <input
             type="number"
             name="emp_id"
-            placeholder="Employee_Id"
+            value="{{ $employee->emp_id }}"
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <input
@@ -60,39 +62,39 @@
         <input
             type="text"
             name="excerpt"
-            placeholder="Excerpt..."
+            value="{{ $employee->excerpt }}"
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <input
             type="date"
             name="dob"
-            placeholder="date of birth"
+            value="{{ $employee->dob }}"
             class="bg-transparent block border-b-2 w-full h-20 text-2xl outline-none">
 
         <input
             type="text"
             name="post"
-            placeholder="Post held"
+           value="{{ $employee->post }}"
             class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none">
         <input
             type = "number"
             name="sallary"
-            placeholder="Sallary"
+           value="{{ $employee->sallary }}"
             class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none">
         <input
             type="text"
             name="address"
-            placeholder="address"
+            value="{{ $employee->address }}"
             class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
         <input
             type="number"
             name="min_to_read"
-            placeholder="MIN_TO_READ"
+           value="{{ $employee->min_to_read }}"
             class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
         <input
             type="path"
             name="image"
-            placeholder="image"
+           value="{{ $employee->image }}"
             class="py-20 bg-transparent block border-b-2 w-full h-15 text-xl outline-none"> 
         
 
