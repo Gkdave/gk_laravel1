@@ -17,7 +17,7 @@ Route::prefix('/blog')->group(function(){
   Route::post('/',[EmployeesController::class,'store'])->name('blog.store');
   Route::get('/edit/{id}',[EmployeesController::class,'edit'])->name('blog.edit');
   Route::patch('/{id}',[EmployeesController::class,'update'])->name('blog.update');
-  Route::delete('/{id}',[EmployeesController::class,'destroy'])->name('blog.delete');
+  Route::delete('/{id}',[EmployeesController::class,'destroy'])->name('blog.destroy');
 });
 
 

@@ -9,14 +9,14 @@
 </head>
 <body>
 <div class="w-4/5 mx-auto">
-    <div class="text-center pt-20">
+    <div class="text-center pt-10">
         <h1 class="text-3xl text-gray-700">
             Add new post
         </h1>
-        <hr class="border border-1 border-gray-300 mt-10">
+        <hr class="border border-1 border-gray-600 mt-5">
     </div>
 
-<div class="m-auto pt-20">
+<div class="m-auto pt-5">
     <div class="pb-8">
         @if($errors->any())
         <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
@@ -73,22 +73,22 @@
             type="text"
             name="post"
             placeholder="Post held"
-            class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none">
+            class="py-10 bg-transparent block border-b-2 w-full h-20 text-xl outline-none">
         <input
             type = "number"
             name="sallary"
             placeholder="Sallary"
-            class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none">
+            class="py-10 bg-transparent block border-b-2 w-full h-20 text-xl outline-none">
         <input
             type="text"
             name="address"
             placeholder="address"
-            class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
+            class="py-10 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
         <input
             type="number"
             name="min_to_read"
             placeholder="MIN_TO_READ"
-            class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
+            class="py-10 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
         {{-- <input
             type="path"
             name="image"
@@ -100,9 +100,9 @@
 
 
             
-        <div class="bg-grey-lighter py-10">
+        <div class="bg-grey-lighter py-5">
             <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
-                    <span class="mt-2 text-base leading-normal">
+                    <span class="mt-1 text-base leading-normal">
                         Select a file
                     </span>
                 <input
@@ -114,7 +114,7 @@
 
         <button
             type="submit"
-            class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
+            class="uppercase mt-1 bg-blue-600 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
             Submit Post
         </button>
     </form>
