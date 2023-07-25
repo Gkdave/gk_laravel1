@@ -91,11 +91,12 @@
             name="min_to_read"
            value="{{ $employee->min_to_read }}"
             class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
-        <input
+        {{-- <input
             type="path"
-            name="image"
+            name="image_path"
            value="{{ $employee->image }}"
-            class="py-20 bg-transparent block border-b-2 w-full h-15 text-xl outline-none"> 
+           class="hidden"> --}}
+            {{-- class="py-20 bg-transparent block border-b-2 w-full h-15 text-xl outline-none">  --}}
         
 
 
@@ -109,7 +110,7 @@
                     </span>
                 <input
                     type="file"
-                    name="image"
+                    name="image_path"
                     class="hidden">
             </label>
         </div>

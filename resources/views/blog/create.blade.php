@@ -89,12 +89,12 @@
             name="min_to_read"
             placeholder="MIN_TO_READ"
             class="py-20 bg-transparent block border-b-2 w-full h-20 text-xl outline-none"> 
-        <input
+        {{-- <input
             type="path"
             name="image"
             placeholder="image"
             class="py-20 bg-transparent block border-b-2 w-full h-15 text-xl outline-none"> 
-        
+         --}}
 
 
 

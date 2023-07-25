@@ -35,6 +35,18 @@
             </a>
         </div>
     </div>
+    @if(session()->has('message'))
+    <div class="mx-auto w-4/5 pb-10">
+        <div class="bg-red-500 text-white font-bold roundec-t px-4 py-2">
+            warning 
+        </div>
+        <div class="border border-t-1 border-red-400 rounded-b bg-red-300 px-4 py-3 text-red-700">
+            {{ $session()->get('message') }}
+        </div>
+
+    </div>
+
+    @endif
     {{-- {{ dd($employees) }} --}}
 
     @foreach($employees as $employee)
@@ -86,6 +98,11 @@
                 <a href="{{ route('blog.edit',$employee->id) }}" class="block italic text-green-500 border-b-1 border-green-200">
                     Edit
                 </a>
+                <form action="{{ route('blog.delete',$employee->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="pt-3 text-red-500 pr-3 " type="submit">DELETE</button>
+                </form>
                 </div>
             </div>
         </div>

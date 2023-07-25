@@ -1,21 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Employee;
+
 class EmployeesController extends Controller
 {
-     /**
+    /**
      * Display a listing of the resource.
      */
     public function index()
     {
         // $employees = Employee::take(5)->get();
-        $employees = Employee::orderBy('id','desc')->take(10)->get();
+        $employees = Employee::orderBy('id', 'desc')->take(10)->get();
         // $employees = Employee::where('min_to_read',2)->get();
         // $employees = Employee::where('min_to_read','!=',2)->get();
-          // dd($employees);
+        // dd($employees);
         // Employee::chunk(25, function ($employees){
         //     foreach ($employees as $employee){
         //         echo $employee->name . '<br>' ;
@@ -24,11 +26,10 @@ class EmployeesController extends Controller
         // $employees = Employee::get()->count();
         // $employees = Employee::sum('min_to_read');
         // $employees = Employee::avg('min_to_read');
-            //  dd($employees);
-    
-      
-        return view('blog.index',['employees'=>$employees]);
+        //  dd($employees);
 
+
+        return view('blog.index', ['employees' => $employees]);
     }
     public function create()
     {
@@ -41,17 +42,18 @@ class EmployeesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'emp_id' =>'',
+            'emp_id' => '',
             'name' => 'required|unique:employees|max:255',
-            'excerpt' =>'required',
-            'dob' =>'',
+            'excerpt' => 'required',
+            'dob' => '',
             'post' => 'required',
-            'sallary'=>'',
-            'address' =>'',
-            'min_to_read'=>'min:0|max:60',
-            'image' =>['required','mimes:jpg,png,jpeg','max:5048'],
-           
-            
+            'sallary' => '',
+            'address' => '',
+            'min_to_read' => 'min:0|max:60',
+            // 'image' =>['required','mimes:jpg,png,jpeg','max:5048']
+
+            'image' => ''
+
         ]);
         // dd($request->all()); 
         // exit;
@@ -82,7 +84,6 @@ class EmployeesController extends Controller
             'is_published' => $request->is_published === 'on',
         ]);
         return redirect(route('blog.index'));
-        
     }
 
     /**
@@ -90,11 +91,11 @@ class EmployeesController extends Controller
      */
     public function show(string $id)
     {
-     
+
         // dd($employee);
-        return view('blog.show',[
-        'employee'=> Employee::find($id)
-         ] );
+        return view('blog.show', [
+            'employee' => Employee::find($id)
+        ]);
     }
 
     /**
@@ -102,17 +103,57 @@ class EmployeesController extends Controller
      */
     public function edit(string $id)
     {
-        return view('blog.edit',
-        ['employee' =>Employee::where('id',$id)->first()
-    ]);
+        return view(
+            'blog.edit',
+            [
+                'employee' => Employee::where('id', $id)->first()
+            ]
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-       dd("test");
+        // $request->validated();
+        $request->validate([
+            'emp_id' => '',
+            'name' => 'required|unique:employees|max:255',
+            'excerpt' => 'required',
+            'dob' => '',
+            'post' => 'required',
+            'sallary' => '',
+            'address' => '',
+            'min_to_read' => 'min:0|max:60',
+            // 'image' =>['required','mimes:jpg,png,jpeg','max:5048'],
+            'image' => '',
+
+
+        ]);
+        //    dd("test");
+        //dd($request->all());
+        // dd($request->except(['_token','_method']));
+        // Employee::where('id',$id)->update(
+        //     [
+        //         'emp_id' => $request->emp_id,
+        //         'name' => $request->name,
+        //         'excerpt' => $request->excerpt,
+        //         'dob' => $request->dob,
+        //         'post' => $request->post,
+        //         'sallary' => $request->sallary,
+        //         'address' => $request->address,
+        //         'min_to_read' => $request->min_to_read,
+
+        //         'image_path' => $request->image,
+        //         'is_published' => $request->is_published === 'on',
+        //     ] );
+        //     return redirect(route('blog.index'));
+        Employee::where('id', $id)->update($request->except([
+            '_token', '_method',
+        ]));
+
+        return redirect(route('blog.index'));
     }
 
     /**
@@ -120,7 +161,9 @@ class EmployeesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // dd("test");
+      Employee::destroy($id);
+      return redirect( route('blog.index'))->with('message','Employee has been deleted');
     }
     private function storeImage($request)
     {
